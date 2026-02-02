@@ -10,22 +10,25 @@ connectDB();
 
 const app = express();
 
+
+app.use(express.json());
+
 const allowedOrigins = [
   "http://localhost:5173",
   "https://note-app-gamma-two.vercel.app"
 ];
 
 app.use(cors({
-  origin: function (origin, callback) {
+  origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error("CORS not allowed"));
+      callback(new Error("Not allowed by CORS"));
     }
   },
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
-app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/todos", todoRoutes);
