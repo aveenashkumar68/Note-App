@@ -1,9 +1,9 @@
-const API_URL = "http://localhost:4000/api/todos"; // no /auth here
+const API_URL = " https://note-app-qb8n.onrender.com/api/todos"; // no /auth here
 
 
 
 export const fetchTodos = async (token) => {
-  const res = await fetch("http://localhost:4000/api/todos", {
+  const res = await fetch(`${API_URL}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
@@ -14,7 +14,7 @@ export const fetchTodos = async (token) => {
 };
 
 export const createTodo = async (title, token) => {
-  const res = await fetch("http://localhost:4000/api/todos", {
+  const res = await fetch(`${API_URL}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

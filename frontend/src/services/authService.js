@@ -1,5 +1,5 @@
 // src/services/authService.js
-const API_URL = "http://localhost:4000/api/auth";// ✅ matches Postman
+const API_URL = " https://note-app-qb8n.onrender.com/api/auth";// ✅ matches Postman
 
 export const login = async (formData) => {
   console.log("Login API hit:", formData); // debug
